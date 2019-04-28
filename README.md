@@ -10,17 +10,21 @@ See the demo [here](https://q42.github.io/delighters)
 Usage
 ---
 1. Include the script.
-``` js
+``` html
 <script type="text/javascript" src="delighters.js">
 ```
-2. Add delighter attributes
+or
+``` html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Q42/delighters/min/delighters.min.js">
 ```
+2. Add delighter attributes
+``` html
 <div class="foo" data-delighter>
 ```
 3. Style the delighter (or its children) using built-in classes `.started` and `.ended`
 
 When the library loads, each [data-delighter] gets the .delighter class.
-```
+``` css
 .foo.delighter {
   transition: all .3s ease-out;
   transform: translateX(-100%);
@@ -28,14 +32,14 @@ When the library loads, each [data-delighter] gets the .delighter class.
 }
 ```
 The `.started` class is set when the top of [data-delighter] element is at 0.75 of the viewport (where 0 is top and 1 is bottom).
-```
+``` css
 .foo.delighter.started {
   transform: none;
   opacity: 1;
 }
 ```
 An extra `.ended` class is set when the bottom of [data-delighter] element is at 0.75 of the viewport (where 0 is top and 1 is bottom).
-```
+``` css
 .foo.delighter.started.ended {
   border: solid red 10px;
 }
@@ -60,7 +64,7 @@ Debugging
 Customizing
 ---
 By default, delighters.js intializes automatically when the DOM is ready, and with the following configuration:
-```
+``` javascript
   options = {
     attribute:  'data-delighter',
     classNames: ['delighter', 'started', 'ended'],
@@ -70,7 +74,7 @@ By default, delighters.js intializes automatically when the DOM is ready, and wi
   }
  ```
 You can customize any or all of the above properties using:
-```
+``` javascript
   Delighters.config({    
     // set the default start threshold at the bottom
     start: 1,
